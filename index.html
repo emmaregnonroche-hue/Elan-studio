@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Élan Studio — Graphisme · Branding · Communication</title>
+
+  <style>
+    /* ================================
+       ÉLAN STUDIO — RÉGLAGES
+       ================================ */
+
+    :root {
+      --fond: #f4f0e8;
+      --texte: #171717;
+      --accent: #e85d3f;
+      --blanc: #ffffff;
+
+      --titre: Arial, Helvetica, sans-serif;
+      --texte-font: Arial, Helvetica, sans-serif;
+    }
+
+    /* ================================
+       BASE
+       ================================ */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--fond);
+      color: var(--texte);
+      font-family: var(--texte-font);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ================================
+       NAVIGATION
+       ================================ */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 24px 4vw;
+
+      mix-blend-mode: difference;
+      color: white;
+    }
+
+    .logo {
+      font-family: var(--titre);
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.5;
+    }
+
+    /* ================================
+       HERO
+       ================================ */
+
+    .hero {
+      min-height: 100vh;
+      padding: 150px 4vw 60px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 30px;
+    }
+
+    .small-label {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .hero-title {
+      max-width: 1100px;
+      margin-top: 80px;
+
+      font-family: var(--titre);
+      font-size: clamp(70px, 13vw, 190px);
+      line-height: 0.82;
+      letter-spacing: -0.08em;
+      font-weight: 800;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 30px;
+    }
+
+    .hero-description {
+      max-width: 390px;
+      font-size: 17px;
+      line-height: 1.45;
+    }
+
+    .scroll {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ================================
+       PROJETS
+       ================================ */
+
+    .projects {
+      padding: 120px 4vw;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 70px;
+    }
+
+    .section-title {
+      font-family: var(--titre);
+      font-size: clamp(50px, 8vw, 110px);
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+    }
+
+    .section-number {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .project {
+      margin-bottom: 100px;
+    }
+
+    .project-image {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ddd6c8,
+          #b8b0a1
+        );
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project-image::after {
+      content: "IMAGE DU PROJET";
+      font-size: 13px;
+      letter-spacing: 2px;
+      opacity: 0.5;
+    }
+
+    .project-image:hover {
+      transform: scale(0.99);
+    }
+
+    .project-image {
+      transition: transform 0.6s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .project-info {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      padding-top: 18px;
+    }
+
+    .project-name {
+      font-family: var(--titre);
+      font-size: clamp(25px, 3vw, 45px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+
+    .project-type {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ================================
+       À PROPOS
+       ================================ */
+
+    .about {
+      padding: 160px 4vw;
+      background: var(--texte);
+      color: var(--fond);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8vw;
+      align-items: start;
+    }
+
+    .about-title {
+      font-family: var(--titre);
+      font-size: clamp(55px, 8vw, 110px);
+      line-height: 0.88;
+      letter-spacing: -0.07em;
+    }
+
+    .about-text {
+      max-width: 500px;
+      font-size: 20px;
+      line-height: 1.5;
+    }
+
+    .about-text p + p {
+      margin-top: 30px;
+    }
+
+    /* ================================
+       SERVICES
+       ================================ */
+
+    .services {
+      padding: 140px 4vw;
+    }
+
+    .service {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 28px 0;
+      border-top: 1px solid var(--texte);
+    }
+
+    .service:last-child {
+      border-bottom: 1px solid var(--texte);
+    }
+
+    .service-name {
+      font-family: var(--titre);
+      font-size: clamp(30px, 5vw, 70px);
+      letter-spacing: -0.05em;
+    }
+
+    .service-number {
+      font-size: 13px;
+    }
+
+    /* ================================
+       CONTACT
+       ================================ */
+
+    .contact {
+      min-height: 80vh;
+      padding: 140px 4vw;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      background: var(--accent);
+      color: var(--texte);
+    }
+
+    .contact-title {
+      font-family: var(--titre);
+      font-size: clamp(60px, 11vw, 160px);
+      line-height: 0.85;
+      letter-spacing: -0.08em;
+    }
+
+    .contact-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 30px;
+    }
+
+    .contact-email {
+      font-size: clamp(22px, 3vw, 40px);
+      text-decoration: underline;
+      text-underline-offset: 6px;
+    }
+
+    .socials {
+      display: flex;
+      gap: 25px;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    /* ================================
+       FOOTER
+       ================================ */
+
+    footer {
+      padding: 25px 4vw;
+
+      display: flex;
+      justify-content: space-between;
+
+      background: var(--texte);
+      color: var(--fond);
+
+      font-size: 12px;
+    }
+
+    /* ================================
+       MOBILE
+       ================================ */
+
+    @media (max-width: 700px) {
+
+      nav {
+        padding: 20px;
+      }
+
+      .nav-links {
+        gap: 14px;
+        font-size: 12px;
+      }
+
+      .hero,
+      .projects,
+      .services,
+      .contact {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .hero {
+        padding-top: 120px;
+      }
+
+      .hero-top,
+      .hero-bottom,
+      .section-header,
+      .project-info,
+      .contact-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-title {
+        margin-top: 50px;
+      }
+
+      .about {
+        padding: 100px 20px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+
+      .projects,
+      .services {
+        padding-top: 100px;
+        padding-bottom: 100px;
+      }
+
+      .project {
+        margin-bottom: 70px;
+      }
+
+      .contact {
+        min-height: 70vh;
+        padding-top: 100px;
+        padding-bottom: 70px;
+      }
+
+      footer {
+        padding: 20px;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <!-- ================================
+       NAVIGATION
+       ================================ -->
+
+  <nav>
+    <a href="#" class="logo">ÉLAN STUDIO</a>
+
+    <div class="nav-links">
+      <a href="#projets">Projets</a>
+      <a href="#about">À propos</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+
+  <!-- ================================
+       HERO
+       ================================ -->
+
+  <header class="hero">
+
+    <div class="hero-top">
+      <div class="small-label">
+        Graphisme · Branding · Communication
+      </div>
+
+      <div class="small-label">
+        France / Montréal
+      </div>
+    </div>
+
+    <h1 class="hero-title">
+      Donner de<br>
+      l'<span>élan</span><br>
+      aux idées.
+    </h1>
+
+    <div class="hero-bottom">
+
+      <p class="hero-description">
+        Élan Studio accompagne les projets qui veulent
+        construire une image forte, créative et cohérente.
+      </p>
+
+      <div class="scroll">
+        ↓ Découvrir
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- ================================
+       PROJETS
+       ================================ -->
+
+  <section class="projects" id="projets">
+
+    <div class="section-header">
+
+      <h2 class="section-title">
+        Projets
+      </h2>
+
+      <div class="section-number">
+        01 — Sélection
+      </div>
+
+    </div>
+
+
+    <!-- PROJET 1 -->
+
+    <article class="project">
+
+      <div class="project-image">
+        <!-- TON IMAGE VIENDRA ICI -->
+      </div>
+
+      <div class="project-info">
+
+        <div>
+          <h3 class="project-name">
+            Le Dressing Gourmand
+          </h3>
+        </div>
+
+        <div class="project-type">
+          Branding · Direction artistique
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- PROJET 2 -->
+
+    <article class="project">
+
+      <div class="project-image">
+        <!-- TON IMAGE VIENDRA ICI -->
+      </div>
+
+      <div class="project-info">
+
+        <div>
+          <h3 class="project-name">
+            Mur Interactif Canada
+          </h3>
+        </div>
+
+        <div class="project-type">
+          Graphisme · Communication
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- PROJET 3 -->
+
+    <article class="project">
+
+      <div class="project-image">
+        <!-- TON IMAGE VIENDRA ICI -->
+      </div>
+
+      <div class="project-info">
+
+        <div>
+          <h3 class="project-name">
+            C.vélo
+          </h3>
+        </div>
+
+        <div class="project-type">
+          Communication · Réseaux sociaux
+        </div>
+
+      </div>
+
+    </article>
+
+  </section>
+
+
+  <!-- ================================
+       À PROPOS
+       ================================ -->
+
+  <section class="about" id="about">
+
+    <div class="about-grid">
+
+      <h2 class="about-title">
+        À propos<br>
+        d'Élan.
+      </h2>
+
+      <div class="about-text">
+
+        <p>
+          Moi, c'est Emma, graphiste et fondatrice
+          d'Élan Studio.
+        </p>
+
+        <p>
+          J'aime transformer une idée en une identité
+          visuelle qui lui ressemble vraiment.
+        </p>
+
+        <p>
+          Entre graphisme, branding, communication et
+          direction artistique, Élan Studio accompagne
+          les projets qui ont quelque chose à raconter.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================================
+       SERVICES
+       ================================ -->
+
+  <section class="services">
+
+    <div class="section-header">
+
+      <h2 class="section-title">
+        Ce que<br>
+        je fais
+      </h2>
+
+    </div>
+
+
+    <div class="service">
+      <div class="service-name">Branding</div>
+      <div class="service-number">01</div>
+    </div>
+
+    <div class="service">
+      <div class="service-name">Graphisme</div>
+      <div class="service-number">02</div>
+    </div>
+
+    <div class="service">
+      <div class="service-name">Communication</div>
+      <div class="service-number">03</div>
+    </div>
+
+    <div class="service">
+      <div class="service-name">Direction artistique</div>
+      <div class="service-number">04</div>
+    </div>
+
+  </section>
+
+
+  <!-- ================================
+       CONTACT
+       ================================ -->
+
+  <section class="contact" id="contact">
+
+    <h2 class="contact-title">
+      Un projet<br>
+      en tête ?
+    </h2>
+
+    <div class="contact-bottom">
+
+      <a
+        href="mailto:bonjour@elanstudio.fr"
+        class="contact-email"
+      >
+        bonjour@elanstudio.fr
+      </a>
+
+      <div class="socials">
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================================
+       FOOTER
+       ================================ -->
+
+  <footer>
+
+    <div>
+      © 2026 Élan Studio
+    </div>
+
+    <div>
+      France · Montréal
+    </div>
+
+  </footer>
+
+</body>
+</html>
