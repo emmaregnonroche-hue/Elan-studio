@@ -16,6 +16,7 @@
       --orange: #FF6D00;
 
       --font-main: Helvetica, Arial, sans-serif;
+      --font-secondary: "Rockwell", Georgia, serif; /* fallback: Rocas Light Italic non-web-safe, remplace par ta police hébergée si besoin */
     }
 
     * {
@@ -43,6 +44,12 @@
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    .accent-italic {
+      font-family: var(--font-secondary);
+      font-style: italic;
+      font-weight: 300;
     }
 
 
@@ -175,6 +182,12 @@
     .hero-arrow {
       color: var(--green);
       font-size: 24px;
+      animation: bounce 2s infinite ease-in-out;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
     }
 
 
@@ -215,14 +228,25 @@
 
     .projects-track {
       display: flex;
+      flex-wrap: nowrap;
       gap: 25px;
 
       overflow-x: auto;
       scroll-behavior: smooth;
+      scroll-snap-type: x proximity;
 
       padding: 0 4vw 30px;
 
       scrollbar-width: none;
+
+      cursor: grab;
+
+      user-select: none;
+    }
+
+    .projects-track.dragging {
+      cursor: grabbing;
+      scroll-behavior: auto;
     }
 
     .projects-track::-webkit-scrollbar {
@@ -231,6 +255,7 @@
 
     .project-card {
       flex: 0 0 min(72vw, 850px);
+      scroll-snap-align: start;
     }
 
     .project-image {
@@ -246,25 +271,79 @@
       position: relative;
     }
 
-    .project-image img {
+    .project-image .slide {
       width: 100%;
       height: 100%;
       object-fit: cover;
 
+      display: none;
+
       transition: transform 0.6s ease;
+
+      pointer-events: none;
+      -webkit-user-drag: none;
+      user-select: none;
     }
 
-    .project-card:hover .project-image img {
+    .project-image .slide.active {
+      display: block;
+    }
+
+    .project-card:hover .project-image .slide.active {
       transform: scale(1.04);
+    }
+
+    .project-dots {
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      display: flex;
+      gap: 7px;
+
+      z-index: 2;
+    }
+
+    .project-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.45);
+
+      cursor: pointer;
+
+      transition: background 0.25s ease, transform 0.25s ease;
+
+      border: none;
+      padding: 0;
+    }
+
+    .project-dot.active {
+      background: var(--cream);
+      transform: scale(1.25);
+    }
+
+    .project-image-clickzone {
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+      z-index: 1;
     }
 
     .project-info {
       display: flex;
       justify-content: space-between;
+      align-items: flex-start;
 
       gap: 30px;
 
       padding-top: 16px;
+    }
+
+    .project-info-left {
+      max-width: 70%;
     }
 
     .project-name {
@@ -273,12 +352,22 @@
       font-weight: 700;
     }
 
+    .project-description {
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: 1.4;
+      opacity: 0.75;
+      max-width: 340px;
+    }
+
     .project-type {
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 1px;
 
       text-align: right;
+
+      white-space: nowrap;
     }
 
     .gallery-controls {
@@ -312,6 +401,15 @@
       border-color: var(--green);
     }
 
+    .testimonials-controls {
+      display: flex;
+      justify-content: flex-end;
+
+      gap: 10px;
+
+      padding-top: 20px;
+    }
+
 
     /* =========================
        TÉMOIGNAGES
@@ -336,15 +434,41 @@
       line-height: 1.45;
     }
 
-    .testimonials-grid {
-      display: grid;
+    .testimonials-wrapper {
+      position: relative;
+    }
 
-      grid-template-columns: repeat(3, 1fr);
-
+    .testimonials-track {
+      display: flex;
+      flex-wrap: nowrap;
       gap: 20px;
+
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scroll-snap-type: x proximity;
+
+      scrollbar-width: none;
+
+      cursor: grab;
+
+      user-select: none;
+
+      padding-bottom: 10px;
+    }
+
+    .testimonials-track.dragging {
+      cursor: grabbing;
+      scroll-behavior: auto;
+    }
+
+    .testimonials-track::-webkit-scrollbar {
+      display: none;
     }
 
     .testimonial-card {
+      flex: 0 0 min(60vw, 420px);
+      scroll-snap-align: start;
+
       background: #F0E7CF;
 
       border-radius: 25px;
@@ -358,11 +482,11 @@
       justify-content: space-between;
     }
 
-    .testimonial-card:nth-child(2) {
+    .testimonial-card:nth-child(3n+2) {
       background: #E4EBD9;
     }
 
-    .testimonial-card:nth-child(3) {
+    .testimonial-card:nth-child(3n+3) {
       background: #F4D8BB;
     }
 
@@ -372,6 +496,24 @@
       line-height: 1.3;
 
       letter-spacing: -0.03em;
+
+      opacity: 0.55;
+    }
+
+    .testimonial-quote::before {
+      content: "";
+    }
+
+    .testimonial-placeholder-tag {
+      display: inline-block;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background: rgba(1, 57, 32, 0.08);
+      color: var(--green);
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 14px;
     }
 
     .testimonial-author {
@@ -456,13 +598,16 @@
     .theme-name {
       font-size: clamp(32px, 5vw, 65px);
       letter-spacing: -0.05em;
+
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
-    .theme-plus {
-      font-size: 30px;
-      font-weight: 300;
-
-      transition: transform 0.3s ease;
+    /* Branding & Packaging mis en avant (juste plus de poids typographique) */
+    .theme.featured .theme-name {
+      font-weight: 800;
     }
 
     .theme-content {
@@ -484,10 +629,17 @@
 
     .theme.active .theme-content {
       max-height: 200px;
-      opacity: 0.8;
+      opacity: 0.85;
 
       padding-top: 15px;
       padding-bottom: 10px;
+    }
+
+    .theme-plus {
+      font-size: 30px;
+      font-weight: 300;
+
+      transition: transform 0.3s ease;
     }
 
     .theme.active .theme-plus {
@@ -574,6 +726,13 @@
       margin-top: 20px;
     }
 
+    .offer-description {
+      margin-top: 16px;
+      font-size: 14px;
+      line-height: 1.5;
+      opacity: 0.8;
+    }
+
     .offer-list {
       list-style: none;
 
@@ -594,6 +753,15 @@
 
       text-transform: uppercase;
       letter-spacing: 1px;
+    }
+
+    .offer-cta {
+      margin-top: 18px;
+      display: inline-block;
+      font-size: 13px;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      color: var(--green);
     }
 
 
@@ -742,6 +910,12 @@
       color: var(--cream);
     }
 
+    .form-note {
+      font-size: 12px;
+      opacity: 0.55;
+      margin-top: -10px;
+    }
+
 
     /* =========================
        FOOTER
@@ -760,6 +934,17 @@
 
       text-transform: uppercase;
       letter-spacing: 0.8px;
+
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    footer a {
+      transition: opacity 0.25s ease;
+    }
+
+    footer a:hover {
+      opacity: 0.6;
     }
 
 
@@ -824,6 +1009,10 @@
         gap: 8px;
       }
 
+      .project-info-left {
+        max-width: 100%;
+      }
+
       .project-type {
         text-align: left;
       }
@@ -847,11 +1036,8 @@
         gap: 25px;
       }
 
-      .testimonials-grid {
-        grid-template-columns: 1fr;
-      }
-
       .testimonial-card {
+        flex-basis: 85vw;
         min-height: 250px;
       }
 
@@ -980,6 +1166,7 @@
         <img
           src="images/emma.jpg"
           alt="Emma — Élan Studio"
+          onerror="this.closest('.hero-photo').style.background='linear-gradient(135deg,#013920,#0a5c38)'; this.style.display='none';"
         >
 
       </div>
@@ -1035,17 +1222,41 @@
           <div class="project-image">
 
             <img
-              src="images/aerialix.jpg"
-              alt="Projet Aerialix"
+              class="slide active"
+              src="images/aerialix-1.jpg"
+              alt="Projet Aerialix — vue 1"
+              draggable="false"
+              onerror="this.parentElement.style.background='#013920'; this.style.display='none';"
             >
+            <img
+              class="slide"
+              src="images/aerialix-2.jpg"
+              alt="Projet Aerialix — vue 2"
+              draggable="false"
+              onerror="this.style.display='none';"
+            >
+            <img
+              class="slide"
+              src="images/aerialix-3.jpg"
+              alt="Projet Aerialix — vue 3"
+              draggable="false"
+              onerror="this.style.display='none';"
+            >
+
+            <div class="project-image-clickzone"></div>
 
           </div>
 
           <div class="project-info">
 
-            <h3 class="project-name">
-              Aerialix
-            </h3>
+            <div class="project-info-left">
+              <h3 class="project-name">
+                Aerialix
+              </h3>
+              <p class="project-description">
+                Identité de marque et système visuel pour un acteur du secteur aérien.
+              </p>
+            </div>
 
             <div class="project-type">
               Branding
@@ -1063,17 +1274,41 @@
           <div class="project-image">
 
             <img
-              src="images/abeilla.jpg"
-              alt="Projet Abeilla"
+              class="slide active"
+              src="images/abeilla-1.jpg"
+              alt="Projet Abeilla — vue 1"
+              draggable="false"
+              onerror="this.parentElement.style.background='#013920'; this.style.display='none';"
             >
+            <img
+              class="slide"
+              src="images/abeilla-2.jpg"
+              alt="Projet Abeilla — vue 2"
+              draggable="false"
+              onerror="this.style.display='none';"
+            >
+            <img
+              class="slide"
+              src="images/abeilla-3.jpg"
+              alt="Projet Abeilla — vue 3"
+              draggable="false"
+              onerror="this.style.display='none';"
+            >
+
+            <div class="project-image-clickzone"></div>
 
           </div>
 
           <div class="project-info">
 
-            <h3 class="project-name">
-              Abeilla
-            </h3>
+            <div class="project-info-left">
+              <h3 class="project-name">
+                Abeilla
+              </h3>
+              <p class="project-description">
+                Branding et packaging pensés autour d'un univers naturel et chaleureux.
+              </p>
+            </div>
 
             <div class="project-type">
               Branding · Packaging
@@ -1091,17 +1326,41 @@
           <div class="project-image">
 
             <img
-              src="images/mur-interactif.jpg"
-              alt="Projet Mur Interactif Canada"
+              class="slide active"
+              src="images/mur-interactif-1.jpg"
+              alt="Projet Mur Interactif — vue 1"
+              draggable="false"
+              onerror="this.parentElement.style.background='#013920'; this.style.display='none';"
             >
+            <img
+              class="slide"
+              src="images/mur-interactif-2.jpg"
+              alt="Projet Mur Interactif — vue 2"
+              draggable="false"
+              onerror="this.style.display='none';"
+            >
+            <img
+              class="slide"
+              src="images/mur-interactif-3.jpg"
+              alt="Projet Mur Interactif — vue 3"
+              draggable="false"
+              onerror="this.style.display='none';"
+            >
+
+            <div class="project-image-clickzone"></div>
 
           </div>
 
           <div class="project-info">
 
-            <h3 class="project-name">
-              Mur Interactif
-            </h3>
+            <div class="project-info-left">
+              <h3 class="project-name">
+                Mur Interactif
+              </h3>
+              <p class="project-description">
+                Direction graphique et supports de communication pour une installation immersive.
+              </p>
+            </div>
 
             <div class="project-type">
               Graphisme · Communication
@@ -1119,17 +1378,41 @@
           <div class="project-image">
 
             <img
-              src="images/cvelo.jpg"
-              alt="Projet C.vélo"
+              class="slide active"
+              src="images/cvelo-1.jpg"
+              alt="Projet C.vélo — vue 1"
+              draggable="false"
+              onerror="this.parentElement.style.background='#013920'; this.style.display='none';"
             >
+            <img
+              class="slide"
+              src="images/cvelo-2.jpg"
+              alt="Projet C.vélo — vue 2"
+              draggable="false"
+              onerror="this.style.display='none';"
+            >
+            <img
+              class="slide"
+              src="images/cvelo-3.jpg"
+              alt="Projet C.vélo — vue 3"
+              draggable="false"
+              onerror="this.style.display='none';"
+            >
+
+            <div class="project-image-clickzone"></div>
 
           </div>
 
           <div class="project-info">
 
-            <h3 class="project-name">
-              C.vélo
-            </h3>
+            <div class="project-info-left">
+              <h3 class="project-name">
+                C.vélo
+              </h3>
+              <p class="project-description">
+                Direction artistique complète pour une marque de mobilité urbaine.
+              </p>
+            </div>
 
             <div class="project-type">
               Direction artistique
@@ -1189,77 +1472,111 @@
     </div>
 
 
-    <div class="testimonials-grid">
+    <div class="testimonials-wrapper">
+
+      <div class="testimonials-track" id="testimonialsTrack">
 
 
-      <!-- TÉMOIGNAGE 01 -->
+        <!-- TÉMOIGNAGE 01 -->
 
-      <article class="testimonial-card">
+        <article class="testimonial-card">
 
-        <div class="testimonial-quote">
-          « Témoignage client à venir. »
-        </div>
-
-        <div class="testimonial-author">
-
-          <div class="testimonial-name">
-            Prénom Nom
+          <div>
+            <span class="testimonial-placeholder-tag">Témoignage à venir</span>
+            <div class="testimonial-quote">
+              « Témoignage client à venir. »
+            </div>
           </div>
 
-          <div class="testimonial-project">
-            Projet
+          <div class="testimonial-author">
+
+            <div class="testimonial-name">
+              Prénom Nom
+            </div>
+
+            <div class="testimonial-project">
+              Projet
+            </div>
+
           </div>
 
-        </div>
-
-      </article>
+        </article>
 
 
-      <!-- TÉMOIGNAGE 02 -->
+        <!-- TÉMOIGNAGE 02 -->
 
-      <article class="testimonial-card">
+        <article class="testimonial-card">
 
-        <div class="testimonial-quote">
-          « Témoignage client à venir. »
-        </div>
-
-        <div class="testimonial-author">
-
-          <div class="testimonial-name">
-            Prénom Nom
+          <div>
+            <span class="testimonial-placeholder-tag">Témoignage à venir</span>
+            <div class="testimonial-quote">
+              « Témoignage client à venir. »
+            </div>
           </div>
 
-          <div class="testimonial-project">
-            Projet
+          <div class="testimonial-author">
+
+            <div class="testimonial-name">
+              Prénom Nom
+            </div>
+
+            <div class="testimonial-project">
+              Projet
+            </div>
+
           </div>
 
-        </div>
-
-      </article>
+        </article>
 
 
-      <!-- TÉMOIGNAGE 03 -->
+        <!-- TÉMOIGNAGE 03 -->
 
-      <article class="testimonial-card">
+        <article class="testimonial-card">
 
-        <div class="testimonial-quote">
-          « Témoignage client à venir. »
-        </div>
-
-        <div class="testimonial-author">
-
-          <div class="testimonial-name">
-            Prénom Nom
+          <div>
+            <span class="testimonial-placeholder-tag">Témoignage à venir</span>
+            <div class="testimonial-quote">
+              « Témoignage client à venir. »
+            </div>
           </div>
 
-          <div class="testimonial-project">
-            Projet
+          <div class="testimonial-author">
+
+            <div class="testimonial-name">
+              Prénom Nom
+            </div>
+
+            <div class="testimonial-project">
+              Projet
+            </div>
+
           </div>
 
-        </div>
+        </article>
 
-      </article>
 
+      </div>
+
+
+      <div class="testimonials-controls">
+
+        <button
+          class="gallery-button"
+          id="prevTestimonial"
+          aria-label="Témoignage précédent"
+        >
+          ←
+        </button>
+
+        <button
+          class="gallery-button"
+          id="nextTestimonial"
+          aria-label="Témoignage suivant"
+        >
+          →
+        </button>
+
+      </div>
 
     </div>
 
@@ -1295,9 +1612,9 @@
     <div class="theme-list">
 
 
-      <!-- BRANDING -->
+      <!-- BRANDING (mis en avant) -->
 
-      <div class="theme">
+      <div class="theme featured">
 
         <div class="theme-number">
           01
@@ -1324,9 +1641,9 @@
       </div>
 
 
-      <!-- PACKAGING -->
+      <!-- PACKAGING (mis en avant) -->
 
-      <div class="theme">
+      <div class="theme featured">
 
         <div class="theme-number">
           02
@@ -1456,6 +1773,10 @@
             48 h
           </div>
 
+          <p class="offer-description">
+            Créer rapidement une petite identité graphique.
+          </p>
+
           <ul class="offer-list">
 
             <li>Logo principal</li>
@@ -1467,8 +1788,11 @@
 
         </div>
 
-        <div class="offer-bottom">
-          Pour lancer votre projet rapidement
+        <div>
+          <div class="offer-bottom">
+            Pour lancer votre projet rapidement
+          </div>
+          <a href="#contact" class="offer-cta">En discuter →</a>
         </div>
 
       </article>
@@ -1493,6 +1817,10 @@
             Environ 1 mois
           </div>
 
+          <p class="offer-description">
+            Une identité complète et cohérente, du logo aux déclinaisons.
+          </p>
+
           <ul class="offer-list">
 
             <li>Logo principal + secondaire</li>
@@ -1507,8 +1835,11 @@
 
         </div>
 
-        <div class="offer-bottom">
-          Une identité pensée dans son ensemble
+        <div>
+          <div class="offer-bottom">
+            Une identité pensée dans son ensemble
+          </div>
+          <a href="#contact" class="offer-cta">En discuter →</a>
         </div>
 
       </article>
@@ -1533,6 +1864,10 @@
             À la carte
           </div>
 
+          <p class="offer-description">
+            Pour les besoins ponctuels, sans engagement global.
+          </p>
+
           <ul class="offer-list">
 
             <li>Signature de mail</li>
@@ -1546,8 +1881,11 @@
 
         </div>
 
-        <div class="offer-bottom">
-          Un besoin précis ? On le crée ensemble.
+        <div>
+          <div class="offer-bottom">
+            Un besoin précis ? On le crée ensemble.
+          </div>
+          <a href="#contact" class="offer-cta">En discuter →</a>
         </div>
 
       </article>
@@ -1610,9 +1948,13 @@
 
 
       <form
-        action="https://formspree.io/f/TON-CODE"
+        action="https://formspree.io/f/REMPLACE_PAR_TON_IDENTIFIANT_FORMSPREE"
         method="POST"
       >
+
+        <p class="form-note">
+          ⚠️ Remplace "REMPLACE_PAR_TON_IDENTIFIANT_FORMSPREE" ci-dessus par ton identifiant Formspree une fois créé sur formspree.io.
+        </p>
 
 
         <div class="form-row">
@@ -1688,7 +2030,7 @@
           <div class="field">
 
             <label for="needs">
-              Vos besoins
+              De quoi avez-vous besoin ?
             </label>
 
             <input
@@ -1730,11 +2072,15 @@
     </div>
 
     <div>
-      France · Montréal
+      <a href="mailto:bonjour@elanstudio.fr">bonjour@elanstudio.fr</a>
     </div>
 
     <div>
       Instagram · LinkedIn
+    </div>
+
+    <div>
+      Mentions légales
     </div>
 
   </footer>
@@ -1748,7 +2094,7 @@
 
 
     /* =========================
-       GALERIE
+       GALERIE — flèches
     ========================= */
 
     const track = document.getElementById("projectsTrack");
@@ -1781,6 +2127,167 @@
 
 
     /* =========================
+       GALERIE — drag à la souris (desktop)
+    ========================= */
+
+    let isDown = false;
+    let startX;
+    let scrollStart;
+
+    track.addEventListener("mousedown", (e) => {
+      isDown = true;
+      track.classList.add("dragging");
+      startX = e.pageX - track.offsetLeft;
+      scrollStart = track.scrollLeft;
+    });
+
+    track.addEventListener("mouseleave", () => {
+      isDown = false;
+      track.classList.remove("dragging");
+    });
+
+    track.addEventListener("mouseup", () => {
+      isDown = false;
+      track.classList.remove("dragging");
+    });
+
+    track.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - track.offsetLeft;
+      const walk = (x - startX) * 1.2;
+      track.scrollLeft = scrollStart - walk;
+    });
+
+    /* Le swipe tactile natif (mobile) fonctionne déjà
+       grâce à overflow-x: auto sur .projects-track */
+
+
+    /* =========================
+       TÉMOIGNAGES — flèches + drag souris
+    ========================= */
+
+    const testimonialsTrack = document.getElementById("testimonialsTrack");
+
+    const nextTestimonial =
+      document.getElementById("nextTestimonial");
+
+    const prevTestimonial =
+      document.getElementById("prevTestimonial");
+
+
+    nextTestimonial.addEventListener("click", () => {
+
+      testimonialsTrack.scrollBy({
+        left: testimonialsTrack.clientWidth * 0.8,
+        behavior: "smooth"
+      });
+
+    });
+
+
+    prevTestimonial.addEventListener("click", () => {
+
+      testimonialsTrack.scrollBy({
+        left: -testimonialsTrack.clientWidth * 0.8,
+        behavior: "smooth"
+      });
+
+    });
+
+
+    let isDownT = false;
+    let startXT;
+    let scrollStartT;
+
+    testimonialsTrack.addEventListener("mousedown", (e) => {
+      isDownT = true;
+      testimonialsTrack.classList.add("dragging");
+      startXT = e.pageX - testimonialsTrack.offsetLeft;
+      scrollStartT = testimonialsTrack.scrollLeft;
+    });
+
+    testimonialsTrack.addEventListener("mouseleave", () => {
+      isDownT = false;
+      testimonialsTrack.classList.remove("dragging");
+    });
+
+    testimonialsTrack.addEventListener("mouseup", () => {
+      isDownT = false;
+      testimonialsTrack.classList.remove("dragging");
+    });
+
+    testimonialsTrack.addEventListener("mousemove", (e) => {
+      if (!isDownT) return;
+      e.preventDefault();
+      const x = e.pageX - testimonialsTrack.offsetLeft;
+      const walk = (x - startXT) * 1.2;
+      testimonialsTrack.scrollLeft = scrollStartT - walk;
+    });
+
+
+    /* =========================
+       MINI-CARROUSELS PAR PROJET
+    ========================= */
+
+    document.querySelectorAll(".project-image").forEach((imageBox) => {
+
+      const slides = imageBox.querySelectorAll(".slide");
+
+      if (slides.length <= 1) return;
+
+      // Génère les dots automatiquement selon le nombre d'images
+      const dotsWrapper = document.createElement("div");
+      dotsWrapper.className = "project-dots";
+
+      slides.forEach((slide, index) => {
+
+        const dot = document.createElement("button");
+        dot.className = "project-dot" + (index === 0 ? " active" : "");
+        dot.setAttribute("aria-label", "Voir la photo " + (index + 1));
+
+        dot.addEventListener("click", (e) => {
+          e.stopPropagation();
+          goToSlide(imageBox, index);
+        });
+
+        dotsWrapper.appendChild(dot);
+
+      });
+
+      imageBox.appendChild(dotsWrapper);
+
+      // Clic sur l'image = passer à la photo suivante
+      const clickzone = imageBox.querySelector(".project-image-clickzone");
+
+      clickzone.addEventListener("click", () => {
+
+        const currentIndex = Array.from(slides).findIndex(s => s.classList.contains("active"));
+        const nextIndex = (currentIndex + 1) % slides.length;
+
+        goToSlide(imageBox, nextIndex);
+
+      });
+
+    });
+
+    function goToSlide(imageBox, index) {
+
+      const slides = imageBox.querySelectorAll(".slide");
+      const dots = imageBox.querySelectorAll(".project-dot");
+
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === index);
+      });
+
+    }
+
+
+    /* =========================
        ACCORDÉONS "+"
     ========================= */
 
@@ -1792,17 +2299,15 @@
 
       theme.addEventListener("click", () => {
 
+        const alreadyActive = theme.classList.contains("active");
+
         themes.forEach(otherTheme => {
-
-          if (otherTheme !== theme) {
-
-            otherTheme.classList.remove("active");
-
-          }
-
+          otherTheme.classList.remove("active");
         });
 
-        theme.classList.toggle("active");
+        if (!alreadyActive) {
+          theme.classList.add("active");
+        }
 
       });
 
