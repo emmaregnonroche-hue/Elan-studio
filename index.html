@@ -4,7 +4,86 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- =========================
+       SEO
+  ========================= -->
+
   <title>Élan Studio — Graphisme & Branding</title>
+
+  <meta
+    name="description"
+    content="Élan Studio, studio de graphisme & branding basé en France, entre Clermont-Ferrand et Vichy. Branding, packaging et direction artistique."
+  >
+
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Élan Studio">
+
+  <link rel="canonical" href="https://élanstudio.com/">
+
+  <!-- =========================
+       OPEN GRAPH — partage réseaux sociaux
+  ========================= -->
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Élan Studio — Graphisme & Branding">
+  <meta
+    property="og:description"
+    content="Studio de graphisme & branding basé en France, entre Clermont-Ferrand et Vichy, ouvert aux projets à Montréal."
+  >
+  <meta property="og:url" content="https://élanstudio.com/">
+  <meta property="og:image" content="https://élanstudio.com/images/emma.jpg">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Élan Studio — Graphisme & Branding">
+  <meta
+    name="twitter:description"
+    content="Studio de graphisme & branding basé en France, entre Clermont-Ferrand et Vichy."
+  >
+  <meta name="twitter:image" content="https://élanstudio.com/images/emma.jpg">
+
+
+  <!-- =========================
+       DONNÉES STRUCTURÉES
+  ========================= -->
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Élan Studio",
+    "description": "Studio de graphisme et branding basé en France, entre Clermont-Ferrand et Vichy, ouvert aux projets à Montréal.",
+    "url": "https://élanstudio.com/",
+    "email": "bonjour@elanstudio.fr",
+    "image": "https://élanstudio.com/images/emma.jpg",
+    "areaServed": [
+      {
+        "@type": "Country",
+        "name": "France"
+      },
+      {
+        "@type": "City",
+        "name": "Clermont-Ferrand"
+      },
+      {
+        "@type": "City",
+        "name": "Vichy"
+      },
+      {
+        "@type": "City",
+        "name": "Montréal"
+      }
+    ],
+    "serviceType": [
+      "Graphisme",
+      "Branding",
+      "Packaging",
+      "Direction artistique",
+      "Supports graphiques"
+    ]
+  }
+  </script>
+
 
   <style>
 
@@ -16,8 +95,9 @@
       --orange: #FF6D00;
 
       --font-main: Helvetica, Arial, sans-serif;
-      --font-secondary: "Rockwell", Georgia, serif; /* fallback: Rocas Light Italic non-web-safe, remplace par ta police hébergée si besoin */
+      --font-secondary: "Rockwell", Georgia, serif;
     }
+
 
     * {
       margin: 0;
@@ -25,9 +105,11 @@
       box-sizing: border-box;
     }
 
+
     html {
       scroll-behavior: smooth;
     }
+
 
     body {
       background: var(--cream);
@@ -36,15 +118,25 @@
       overflow-x: hidden;
     }
 
+
     img {
       display: block;
       width: 100%;
     }
 
+
     a {
       color: inherit;
       text-decoration: none;
     }
+
+
+    button,
+    input,
+    textarea {
+      font-family: inherit;
+    }
+
 
     .accent-italic {
       font-family: var(--font-secondary);
@@ -73,7 +165,9 @@
 
       background: rgba(255, 247, 227, 0.88);
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
+
 
     .logo {
       font-size: 19px;
@@ -81,15 +175,18 @@
       letter-spacing: -1px;
     }
 
+
     .nav-links {
       display: flex;
       gap: 28px;
       font-size: 13px;
     }
 
+
     .nav-links a {
       transition: opacity 0.25s ease;
     }
+
 
     .nav-links a:hover {
       opacity: 0.45;
@@ -112,6 +209,7 @@
       position: relative;
     }
 
+
     .hero-top {
       display: flex;
       justify-content: space-between;
@@ -120,11 +218,13 @@
       gap: 30px;
     }
 
+
     .small-label {
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 1.5px;
     }
+
 
     .hero-main {
       display: grid;
@@ -134,6 +234,7 @@
       align-items: end;
     }
 
+
     .hero-title {
       font-size: clamp(70px, 12vw, 175px);
       line-height: 0.95;
@@ -141,9 +242,11 @@
       font-weight: 800;
     }
 
+
     .hero-title span {
       color: var(--green);
     }
+
 
     .hero-photo {
       width: 100%;
@@ -158,11 +261,13 @@
       background: var(--green);
     }
 
+
     .hero-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+
 
     .hero-bottom {
       display: flex;
@@ -172,12 +277,19 @@
       gap: 30px;
     }
 
+
     .hero-description {
-      max-width: 450px;
+      max-width: 550px;
 
       font-size: 17px;
       line-height: 1.45;
     }
+
+
+    .hero-description strong {
+      font-weight: 700;
+    }
+
 
     .hero-arrow {
       color: var(--green);
@@ -185,9 +297,15 @@
       animation: bounce 2s infinite ease-in-out;
     }
 
+
     @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(6px); }
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(6px);
+      }
     }
 
 
@@ -199,6 +317,7 @@
       padding: 140px 0 100px;
     }
 
+
     .projects-header {
       padding: 0 4vw;
 
@@ -209,6 +328,7 @@
       margin-bottom: 55px;
     }
 
+
     .section-title {
       font-size: clamp(55px, 8vw, 110px);
       line-height: 0.86;
@@ -216,15 +336,18 @@
       font-weight: 800;
     }
 
+
     .section-number {
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 1.5px;
     }
 
+
     .projects-wrapper {
       position: relative;
     }
+
 
     .projects-track {
       display: flex;
@@ -244,19 +367,23 @@
       user-select: none;
     }
 
+
     .projects-track.dragging {
       cursor: grabbing;
       scroll-behavior: auto;
     }
 
+
     .projects-track::-webkit-scrollbar {
       display: none;
     }
+
 
     .project-card {
       flex: 0 0 min(72vw, 850px);
       scroll-snap-align: start;
     }
+
 
     .project-image {
       width: 100%;
@@ -270,6 +397,7 @@
 
       position: relative;
     }
+
 
     .project-image .slide {
       width: 100%;
@@ -285,13 +413,16 @@
       user-select: none;
     }
 
+
     .project-image .slide.active {
       display: block;
     }
 
+
     .project-card:hover .project-image .slide.active {
       transform: scale(1.04);
     }
+
 
     .project-dots {
       position: absolute;
@@ -305,6 +436,7 @@
       z-index: 2;
     }
 
+
     .project-dot {
       width: 7px;
       height: 7px;
@@ -314,16 +446,20 @@
 
       cursor: pointer;
 
-      transition: background 0.25s ease, transform 0.25s ease;
+      transition:
+        background 0.25s ease,
+        transform 0.25s ease;
 
       border: none;
       padding: 0;
     }
 
+
     .project-dot.active {
       background: var(--cream);
       transform: scale(1.25);
     }
+
 
     .project-image-clickzone {
       position: absolute;
@@ -331,6 +467,7 @@
       cursor: pointer;
       z-index: 1;
     }
+
 
     .project-info {
       display: flex;
@@ -342,9 +479,11 @@
       padding-top: 16px;
     }
 
+
     .project-info-left {
       max-width: 70%;
     }
+
 
     .project-name {
       font-size: clamp(25px, 3vw, 40px);
@@ -352,13 +491,15 @@
       font-weight: 700;
     }
 
+
     .project-description {
       margin-top: 8px;
       font-size: 14px;
       line-height: 1.4;
       opacity: 0.75;
-      max-width: 340px;
+      max-width: 400px;
     }
+
 
     .project-type {
       font-size: 12px;
@@ -370,6 +511,7 @@
       white-space: nowrap;
     }
 
+
     .gallery-controls {
       display: flex;
       justify-content: flex-end;
@@ -378,6 +520,7 @@
 
       padding: 25px 4vw 0;
     }
+
 
     .gallery-button {
       width: 48px;
@@ -395,11 +538,25 @@
       transition: all 0.25s ease;
     }
 
+
     .gallery-button:hover {
       background: var(--green);
       color: var(--cream);
       border-color: var(--green);
     }
+
+
+    .gallery-button:focus-visible,
+    .submit-button:focus-visible,
+    .project-dot:focus-visible,
+    .theme:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 4px;
+    }
+
 
     .testimonials-controls {
       display: flex;
@@ -419,6 +576,7 @@
       padding: 80px 4vw 150px;
     }
 
+
     .testimonials-header {
       display: flex;
       justify-content: space-between;
@@ -427,6 +585,7 @@
       margin-bottom: 55px;
     }
 
+
     .testimonials-intro {
       max-width: 330px;
 
@@ -434,9 +593,11 @@
       line-height: 1.45;
     }
 
+
     .testimonials-wrapper {
       position: relative;
     }
+
 
     .testimonials-track {
       display: flex;
@@ -456,14 +617,17 @@
       padding-bottom: 10px;
     }
 
+
     .testimonials-track.dragging {
       cursor: grabbing;
       scroll-behavior: auto;
     }
 
+
     .testimonials-track::-webkit-scrollbar {
       display: none;
     }
+
 
     .testimonial-card {
       flex: 0 0 min(60vw, 420px);
@@ -482,13 +646,16 @@
       justify-content: space-between;
     }
 
+
     .testimonial-card:nth-child(3n+2) {
       background: #E4EBD9;
     }
 
+
     .testimonial-card:nth-child(3n+3) {
       background: #F4D8BB;
     }
+
 
     .testimonial-quote {
       font-size: 25px;
@@ -500,21 +667,25 @@
       opacity: 0.55;
     }
 
-    .testimonial-quote::before {
-      content: "";
-    }
 
     .testimonial-placeholder-tag {
       display: inline-block;
+
       font-size: 10px;
+
       text-transform: uppercase;
       letter-spacing: 1px;
+
       background: rgba(1, 57, 32, 0.08);
       color: var(--green);
+
       padding: 4px 10px;
+
       border-radius: 20px;
+
       margin-bottom: 14px;
     }
+
 
     .testimonial-author {
       display: flex;
@@ -526,15 +697,19 @@
       padding-top: 30px;
     }
 
+
     .testimonial-name {
       font-weight: 700;
       font-size: 14px;
     }
 
+
     .testimonial-project {
       font-size: 11px;
+
       text-transform: uppercase;
       letter-spacing: 1px;
+
       text-align: right;
     }
 
@@ -550,6 +725,7 @@
       padding: 140px 4vw;
     }
 
+
     .universe-intro {
       display: grid;
 
@@ -560,11 +736,13 @@
       margin-bottom: 90px;
     }
 
+
     .universe-title {
       font-size: clamp(55px, 8vw, 110px);
       line-height: 0.86;
       letter-spacing: -0.07em;
     }
+
 
     .universe-text {
       max-width: 500px;
@@ -573,9 +751,11 @@
       line-height: 1.5;
     }
 
+
     .theme-list {
       border-top: 1px solid rgba(255,255,255,0.3);
     }
+
 
     .theme {
       border-bottom: 1px solid rgba(255,255,255,0.3);
@@ -590,10 +770,12 @@
       cursor: pointer;
     }
 
+
     .theme-number {
       font-size: 12px;
       opacity: 0.6;
     }
+
 
     .theme-name {
       font-size: clamp(32px, 5vw, 65px);
@@ -605,10 +787,11 @@
       flex-wrap: wrap;
     }
 
-    /* Branding & Packaging mis en avant (juste plus de poids typographique) */
+
     .theme.featured .theme-name {
       font-weight: 800;
     }
+
 
     .theme-content {
       grid-column: 2 / 3;
@@ -624,8 +807,10 @@
 
       font-size: 16px;
       line-height: 1.5;
+
       padding-right: 20px;
     }
+
 
     .theme.active .theme-content {
       max-height: 200px;
@@ -635,12 +820,14 @@
       padding-bottom: 10px;
     }
 
+
     .theme-plus {
       font-size: 30px;
       font-weight: 300;
 
       transition: transform 0.3s ease;
     }
+
 
     .theme.active .theme-plus {
       transform: rotate(45deg);
@@ -655,6 +842,7 @@
       padding: 150px 4vw;
     }
 
+
     .offers-header {
       margin-bottom: 65px;
 
@@ -665,12 +853,14 @@
       gap: 30px;
     }
 
+
     .offers-intro {
       max-width: 390px;
 
       font-size: 17px;
       line-height: 1.45;
     }
+
 
     .offers-grid {
       display: grid;
@@ -679,6 +869,7 @@
 
       gap: 20px;
     }
+
 
     .offer-card {
       padding: 35px;
@@ -694,28 +885,35 @@
       background: #F0E7CF;
     }
 
+
     .offer-card:nth-child(2) {
       background: #DDE8D8;
     }
+
 
     .offer-card:nth-child(3) {
       background: #F4D8BB;
     }
 
+
     .offer-label {
       font-size: 12px;
+
       text-transform: uppercase;
       letter-spacing: 1.3px;
     }
 
+
     .offer-title {
       font-size: clamp(38px, 4vw, 65px);
+
       line-height: 0.9;
 
       letter-spacing: -0.07em;
 
       margin-top: 20px;
     }
+
 
     .offer-duration {
       color: var(--green);
@@ -726,12 +924,16 @@
       margin-top: 20px;
     }
 
+
     .offer-description {
       margin-top: 16px;
+
       font-size: 14px;
       line-height: 1.5;
+
       opacity: 0.8;
     }
+
 
     .offer-list {
       list-style: none;
@@ -742,11 +944,15 @@
       line-height: 1.6;
     }
 
+
     .offer-list li::before {
       content: "→ ";
+
       color: var(--orange);
+
       font-weight: bold;
     }
+
 
     .offer-bottom {
       font-size: 12px;
@@ -755,12 +961,17 @@
       letter-spacing: 1px;
     }
 
+
     .offer-cta {
       margin-top: 18px;
+
       display: inline-block;
+
       font-size: 13px;
+
       text-decoration: underline;
       text-underline-offset: 4px;
+
       color: var(--green);
     }
 
@@ -776,6 +987,7 @@
       padding: 140px 4vw;
     }
 
+
     .contact-top {
       display: grid;
 
@@ -786,11 +998,15 @@
       margin-bottom: 100px;
     }
 
+
     .contact-title {
       font-size: clamp(55px, 9vw, 125px);
+
       line-height: 0.84;
+
       letter-spacing: -0.08em;
     }
+
 
     .contact-text {
       max-width: 450px;
@@ -798,6 +1014,7 @@
       font-size: 19px;
       line-height: 1.5;
     }
+
 
     .contact-mail {
       display: inline-block;
@@ -809,6 +1026,7 @@
       color: var(--cream);
 
       text-decoration: underline;
+
       text-underline-offset: 7px;
     }
 
@@ -821,6 +1039,7 @@
       max-width: 1000px;
     }
 
+
     .form-title {
       font-size: clamp(35px, 5vw, 65px);
 
@@ -829,32 +1048,42 @@
       margin-bottom: 40px;
     }
 
+
     form {
       display: flex;
       flex-direction: column;
+
       gap: 28px;
     }
 
+
     .form-row {
       display: grid;
+
       grid-template-columns: 1fr 1fr;
 
       gap: 20px;
     }
 
+
     .field {
       display: flex;
+
       flex-direction: column;
+
       gap: 8px;
     }
 
+
     .field label {
       font-size: 11px;
+
       text-transform: uppercase;
       letter-spacing: 1px;
 
       opacity: 0.7;
     }
+
 
     .field input,
     .field textarea {
@@ -863,6 +1092,7 @@
       background: transparent;
 
       border: none;
+
       border-bottom: 1px solid rgba(255,255,255,0.4);
 
       padding: 12px 0;
@@ -870,10 +1100,18 @@
       color: var(--cream);
 
       font-family: inherit;
+
       font-size: 17px;
 
       outline: none;
     }
+
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: rgba(255,247,227,0.55);
+    }
+
 
     .field textarea {
       min-height: 130px;
@@ -881,10 +1119,12 @@
       resize: vertical;
     }
 
+
     .field input:focus,
     .field textarea:focus {
       border-bottom-color: var(--cream);
     }
+
 
     .submit-button {
       align-self: flex-start;
@@ -892,12 +1132,15 @@
       padding: 15px 25px;
 
       border: 1px solid var(--cream);
+
       border-radius: 50px;
 
       background: var(--cream);
+
       color: var(--green);
 
       font-family: inherit;
+
       font-size: 13px;
 
       cursor: pointer;
@@ -905,10 +1148,13 @@
       transition: all 0.25s ease;
     }
 
+
     .submit-button:hover {
       background: transparent;
+
       color: var(--cream);
     }
+
 
     /* =========================
        FOOTER
@@ -916,25 +1162,31 @@
 
     footer {
       background: var(--black);
+
       color: var(--cream);
 
       padding: 25px 4vw;
 
       display: flex;
+
       justify-content: space-between;
 
       font-size: 11px;
 
       text-transform: uppercase;
+
       letter-spacing: 0.8px;
 
       flex-wrap: wrap;
+
       gap: 10px;
     }
+
 
     footer a {
       transition: opacity 0.25s ease;
     }
+
 
     footer a:hover {
       opacity: 0.6;
@@ -951,10 +1203,13 @@
         padding: 18px 20px;
       }
 
+
       .nav-links {
         gap: 14px;
+
         font-size: 11px;
       }
+
 
       .hero {
         padding:
@@ -963,57 +1218,80 @@
           50px;
       }
 
+
       .hero-top {
         gap: 15px;
       }
 
+
       .hero-main {
         grid-template-columns: 1fr;
+
         gap: 45px;
       }
 
+
       .hero-photo {
         justify-self: start;
+
         max-width: 250px;
       }
 
+
       .hero-bottom {
         flex-direction: column;
+
         align-items: flex-start;
 
         margin-top: 50px;
       }
 
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+
       .projects {
         padding-top: 100px;
+
         padding-bottom: 60px;
       }
+
 
       .projects-header {
         padding: 0 20px;
       }
 
+
       .project-card {
         flex-basis: 85vw;
       }
 
+
       .project-info {
         flex-direction: column;
+
         gap: 8px;
       }
+
 
       .project-info-left {
         max-width: 100%;
       }
 
+
       .project-type {
         text-align: left;
       }
 
+
       .gallery-controls {
         padding-left: 20px;
+
         padding-right: 20px;
       }
+
 
       .testimonials {
         padding:
@@ -1022,73 +1300,116 @@
           100px;
       }
 
+
       .testimonials-header {
         flex-direction: column;
+
         align-items: flex-start;
 
         gap: 25px;
       }
 
+
       .testimonial-card {
         flex-basis: 85vw;
+
         min-height: 250px;
       }
+
 
       .universe {
         padding: 100px 20px;
       }
 
+
       .universe-intro {
         grid-template-columns: 1fr;
+
         gap: 45px;
+
         margin-bottom: 60px;
       }
+
 
       .theme {
         grid-template-columns: 45px 1fr 35px;
       }
 
+
       .theme-content {
         grid-column: 2 / 3;
       }
+
 
       .offers {
         padding: 100px 20px;
       }
 
+
       .offers-header {
         flex-direction: column;
+
         align-items: flex-start;
       }
+
 
       .offers-grid {
         grid-template-columns: 1fr;
       }
 
+
       .offer-card {
         min-height: 430px;
       }
+
 
       .contact {
         padding: 100px 20px;
       }
 
+
       .contact-top {
         grid-template-columns: 1fr;
+
         gap: 45px;
 
         margin-bottom: 70px;
       }
 
+
       .form-row {
         grid-template-columns: 1fr;
       }
+
 
       footer {
         padding: 20px;
 
         flex-direction: column;
+
         gap: 10px;
+      }
+
+    }
+
+
+    /* =========================
+       ACCESSIBILITÉ / RÉDUCTION
+       DES ANIMATIONS
+    ========================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
       }
 
     }
@@ -1101,12 +1422,12 @@
 
 
   <!-- =========================
-       NAV
+       NAVIGATION
   ========================= -->
 
-  <nav>
+  <nav aria-label="Navigation principale">
 
-    <a href="#" class="logo">
+    <a href="#" class="logo" aria-label="Élan Studio — Accueil">
       ÉLAN STUDIO
     </a>
 
@@ -1150,15 +1471,9 @@
 
       <div class="hero-photo">
 
-        <!--
-          TA PHOTO :
-          place ton fichier dans le dossier images
-          sous le nom emma.jpg
-        -->
-
         <img
           src="images/emma.jpg"
-          alt="Emma — Élan Studio"
+          alt="Emma, fondatrice d'Élan Studio, studio de graphisme et branding"
           onerror="this.closest('.hero-photo').style.background='linear-gradient(135deg,#013920,#0a5c38)'; this.style.display='none';"
         >
 
@@ -1173,9 +1488,15 @@
         Élan Studio imagine des identités graphiques,
         des univers de marque et des supports qui donnent
         une vraie direction aux projets.
+        <br><br>
+        <strong>
+          Studio de graphisme & branding basé en France,
+          entre Clermont-Ferrand et Vichy, et ouvert aux projets à Montréal.
+        </strong>
       </p>
 
-      <div class="hero-arrow">
+
+      <div class="hero-arrow" aria-hidden="true">
         ↓
       </div>
 
@@ -1188,866 +1509,1043 @@
        PROJETS
   ========================= -->
 
-  <section class="projects" id="projets">
+  <main>
 
-    <div class="projects-header">
 
-      <h2 class="section-title">
-        Projets
-      </h2>
+    <section class="projects" id="projets" aria-labelledby="projets-title">
 
-      <div class="section-number">
-        01 — sélection
+      <div class="projects-header">
+
+        <h2 class="section-title" id="projets-title">
+          Projets
+        </h2>
+
+        <div class="section-number">
+          01 — sélection
+        </div>
+
       </div>
 
-    </div>
+
+      <div class="projects-wrapper">
+
+        <div
+          class="projects-track"
+          id="projectsTrack"
+          aria-label="Galerie de projets"
+        >
 
 
-    <div class="projects-wrapper">
+          <!-- =========================
+               AERIALIX
+          ========================= -->
 
-      <div class="projects-track" id="projectsTrack">
+          <article class="project-card">
 
+            <div class="project-image">
 
-        <!-- AERIALIX -->
+              <img
+                class="slide active"
+                src="images/aerialix-1.jpg"
+                alt="Identité visuelle Aerialix — projet de branding"
+                draggable="false"
+                onerror="this.parentElement.style.background='#013920'; this.style.display='none';"
+              >
 
-        <article class="project-card">
+              <img
+                class="slide"
+                src="images/aerialix-2.jpg"
+                alt="Aerialix — déclinaison graphique de l'identité de marque"
+                draggable="false"
+                onerror="this.style.display='none';"
+              >
 
-          <div class="project-image">
+              <img
+                class="slide"
+                src="images/aerialix-3.jpg"
+                alt="Aerialix — univers visuel et supports de communication"
+                draggable="false"
+                onerror="this.style.display='none';"
+              >
 
-            <img
-              class="slide active"
-              src="images/aerialix-1.jpg"
-              alt="Projet Aerialix — vue 1"
-              draggable="false"
-              onerror="this.parentElement.style.background='#013920'; this.style.display='none';"
-            >
-            <img
-              class="slide"
-              src="images/aerialix-2.jpg"
-              alt="Projet Aerialix — vue 2"
-              draggable="false"
-              onerror="this.style.display='none';"
-            >
-            <img
-              class="slide"
-              src="images/aerialix-3.jpg"
-              alt="Projet Aerialix — vue 3"
-              draggable="false"
-              onerror="this.style.display='none';"
-            >
+              <div
+                class="project-image-clickzone"
+                role="button"
+                tabindex="0"
+                aria-label="Voir les différentes images du projet Aerialix"
+              ></div>
 
-            <div class="project-image-clickzone"></div>
-
-          </div>
-
-          <div class="project-info">
-
-            <div class="project-info-left">
-              <h3 class="project-name">
-                Aerialix
-              </h3>
-              <p class="project-description">
-                Identité de marque et système visuel pour un acteur du secteur aérien.
-              </p>
             </div>
 
-            <div class="project-type">
+
+            <div class="project-info">
+
+              <div class="project-info-left">
+
+                <h3 class="project-name">
+                  Aerialix
+                </h3>
+
+                <p class="project-description">
+                  Identité de marque et système visuel pour un acteur du secteur aérien.
+                </p>
+
+              </div>
+
+
+              <div class="project-type">
+                Branding
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- =========================
+               ABEILLA
+          ========================= -->
+
+          <article class="project-card">
+
+            <div class="project-image">
+
+              <img
+                class="slide active"
+                src="images/abeilla-1.jpg"
+                alt="Identité de marque Abeilla — projet de branding et packaging"
+                draggable="false"
+                onerror="this.parentElement.style.background='#013920'; this.style.display='none';"
+              >
+
+              <img
+                class="slide"
+                src="images/abeilla-2.jpg"
+                alt="Abeilla — création de packaging et univers graphique"
+                draggable="false"
+                onerror="this.style.display='none';"
+              >
+
+              <img
+                class="slide"
+                src="images/abeilla-3.jpg"
+                alt="Abeilla — déclinaisons de l'identité visuelle"
+                draggable="false"
+                onerror="this.style.display='none';"
+              >
+
+              <div
+                class="project-image-clickzone"
+                role="button"
+                tabindex="0"
+                aria-label="Voir les différentes images du projet Abeilla"
+              ></div>
+
+            </div>
+
+
+            <div class="project-info">
+
+              <div class="project-info-left">
+
+                <h3 class="project-name">
+                  Abeilla
+                </h3>
+
+                <p class="project-description">
+                  Branding et packaging pensés autour d'un univers naturel et chaleureux.
+                </p>
+
+              </div>
+
+
+              <div class="project-type">
+                Branding · Packaging
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- =========================
+               MUR INTERACTIF
+          ========================= -->
+
+          <article class="project-card">
+
+            <div class="project-image">
+
+              <img
+                class="slide active"
+                src="images/mur-interactif-1.jpg"
+                alt="Mur Interactif — direction artistique pour une installation immersive"
+                draggable="false"
+                onerror="this.parentElement.style.background='#013920'; this.style.display='none';"
+              >
+
+              <img
+                class="slide"
+                src="images/mur-interactif-2.jpg"
+                alt="Mur Interactif — univers visuel et création graphique"
+                draggable="false"
+                onerror="this.style.display='none';"
+              >
+
+              <img
+                class="slide"
+                src="images/mur-interactif-3.jpg"
+                alt="Mur Interactif — supports graphiques pour une expérience immersive"
+                draggable="false"
+                onerror="this.style.display='none';"
+              >
+
+              <div
+                class="project-image-clickzone"
+                role="button"
+                tabindex="0"
+                aria-label="Voir les différentes images du projet Mur Interactif"
+              ></div>
+
+            </div>
+
+
+            <div class="project-info">
+
+              <div class="project-info-left">
+
+                <h3 class="project-name">
+                  Mur Interactif
+                </h3>
+
+                <p class="project-description">
+                  Direction artistique complète pour une installation immersive.
+                </p>
+
+              </div>
+
+
+              <div class="project-type">
+                Direction artistique
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- =========================
+               C.VÉLO
+          ========================= -->
+
+          <article class="project-card">
+
+            <div class="project-image">
+
+              <img
+                class="slide active"
+                src="images/cvelo-1.jpg"
+                alt="C.vélo — création graphique et communication pour la mobilité urbaine"
+                draggable="false"
+                onerror="this.parentElement.style.background='#013920'; this.style.display='none';"
+              >
+
+              <img
+                class="slide"
+                src="images/cvelo-2.jpg"
+                alt="C.vélo — déclinaison de supports de communication"
+                draggable="false"
+                onerror="this.style.display='none';"
+              >
+
+              <img
+                class="slide"
+                src="images/cvelo-3.jpg"
+                alt="C.vélo — création de contenus graphiques"
+                draggable="false"
+                onerror="this.style.display='none';"
+              >
+
+              <div
+                class="project-image-clickzone"
+                role="button"
+                tabindex="0"
+                aria-label="Voir les différentes images du projet C.vélo"
+              ></div>
+
+            </div>
+
+
+            <div class="project-info">
+
+              <div class="project-info-left">
+
+                <h3 class="project-name">
+                  C.vélo
+                </h3>
+
+                <p class="project-description">
+                  Supports graphiques et contenus de communication pour une marque de mobilité urbaine.
+                </p>
+
+              </div>
+
+
+              <div class="project-type">
+                Communication
+              </div>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+
+        <div class="gallery-controls">
+
+          <button
+            class="gallery-button"
+            id="prevProject"
+            aria-label="Projet précédent"
+            type="button"
+          >
+            ←
+          </button>
+
+          <button
+            class="gallery-button"
+            id="nextProject"
+            aria-label="Projet suivant"
+            type="button"
+          >
+            →
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         TÉMOIGNAGES
+    ========================= -->
+
+    <section
+      class="testimonials"
+      id="retours"
+      aria-labelledby="retours-title"
+    >
+
+      <div class="testimonials-header">
+
+        <h2 class="section-title" id="retours-title">
+          Vos<br>
+          retours.
+        </h2>
+
+        <p class="testimonials-intro">
+          Quelques mots de celles et ceux
+          avec qui j'ai eu la chance de travailler.
+        </p>
+
+      </div>
+
+
+      <div class="testimonials-wrapper">
+
+        <div
+          class="testimonials-track"
+          id="testimonialsTrack"
+          aria-label="Témoignages clients"
+        >
+
+
+          <article class="testimonial-card">
+
+            <div>
+
+              <span class="testimonial-placeholder-tag">
+                Témoignage à venir
+              </span>
+
+              <div class="testimonial-quote">
+                « Témoignage client à venir. »
+              </div>
+
+            </div>
+
+
+            <div class="testimonial-author">
+
+              <div class="testimonial-name">
+                Prénom Nom
+              </div>
+
+              <div class="testimonial-project">
+                Projet
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="testimonial-card">
+
+            <div>
+
+              <span class="testimonial-placeholder-tag">
+                Témoignage à venir
+              </span>
+
+              <div class="testimonial-quote">
+                « Témoignage client à venir. »
+              </div>
+
+            </div>
+
+
+            <div class="testimonial-author">
+
+              <div class="testimonial-name">
+                Prénom Nom
+              </div>
+
+              <div class="testimonial-project">
+                Projet
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="testimonial-card">
+
+            <div>
+
+              <span class="testimonial-placeholder-tag">
+                Témoignage à venir
+              </span>
+
+              <div class="testimonial-quote">
+                « Témoignage client à venir. »
+              </div>
+
+            </div>
+
+
+            <div class="testimonial-author">
+
+              <div class="testimonial-name">
+                Prénom Nom
+              </div>
+
+              <div class="testimonial-project">
+                Projet
+              </div>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+
+        <div class="testimonials-controls">
+
+          <button
+            class="gallery-button"
+            id="prevTestimonial"
+            aria-label="Témoignage précédent"
+            type="button"
+          >
+            ←
+          </button>
+
+          <button
+            class="gallery-button"
+            id="nextTestimonial"
+            aria-label="Témoignage suivant"
+            type="button"
+          >
+            →
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         UNIVERS
+    ========================= -->
+
+    <section
+      class="universe"
+      id="univers"
+      aria-labelledby="univers-title"
+    >
+
+      <div class="universe-intro">
+
+        <h2 class="universe-title" id="univers-title">
+          Mon<br>
+          univers.
+        </h2>
+
+
+        <div class="universe-text">
+
+          <p>
+            Le branding est au cœur d'Élan Studio.
+            J'aime construire des univers cohérents,
+            reconnaissables et pensés dans les moindres détails.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="theme-list">
+
+
+        <!-- BRANDING -->
+
+        <div
+          class="theme featured"
+          tabindex="0"
+          role="button"
+          aria-expanded="false"
+        >
+
+          <div class="theme-number">
+            01
+          </div>
+
+
+          <div>
+
+            <div class="theme-name">
               Branding
             </div>
 
-          </div>
 
-        </article>
-
-
-        <!-- ABEILLA -->
-
-        <article class="project-card">
-
-          <div class="project-image">
-
-            <img
-              class="slide active"
-              src="images/abeilla-1.jpg"
-              alt="Projet Abeilla — vue 1"
-              draggable="false"
-              onerror="this.parentElement.style.background='#013920'; this.style.display='none';"
-            >
-            <img
-              class="slide"
-              src="images/abeilla-2.jpg"
-              alt="Projet Abeilla — vue 2"
-              draggable="false"
-              onerror="this.style.display='none';"
-            >
-            <img
-              class="slide"
-              src="images/abeilla-3.jpg"
-              alt="Projet Abeilla — vue 3"
-              draggable="false"
-              onerror="this.style.display='none';"
-            >
-
-            <div class="project-image-clickzone"></div>
-
-          </div>
-
-          <div class="project-info">
-
-            <div class="project-info-left">
-              <h3 class="project-name">
-                Abeilla
-              </h3>
-              <p class="project-description">
-                Branding et packaging pensés autour d'un univers naturel et chaleureux.
-              </p>
-            </div>
-
-            <div class="project-type">
-              Branding · Packaging
+            <div class="theme-content">
+              Création ou refonte d'une identité de marque :
+              logo, palette, typographies, direction artistique
+              et système graphique.
             </div>
 
           </div>
 
-        </article>
+
+          <div class="theme-plus" aria-hidden="true">
+            +
+          </div>
+
+        </div>
 
 
-        <!-- MUR INTERACTIF -->
+        <!-- PACKAGING -->
 
-        <article class="project-card">
+        <div
+          class="theme featured"
+          tabindex="0"
+          role="button"
+          aria-expanded="false"
+        >
 
-          <div class="project-image">
+          <div class="theme-number">
+            02
+          </div>
 
-            <img
-              class="slide active"
-              src="images/mur-interactif-1.jpg"
-              alt="Projet Mur Interactif — vue 1"
-              draggable="false"
-              onerror="this.parentElement.style.background='#013920'; this.style.display='none';"
-            >
-            <img
-              class="slide"
-              src="images/mur-interactif-2.jpg"
-              alt="Projet Mur Interactif — vue 2"
-              draggable="false"
-              onerror="this.style.display='none';"
-            >
-            <img
-              class="slide"
-              src="images/mur-interactif-3.jpg"
-              alt="Projet Mur Interactif — vue 3"
-              draggable="false"
-              onerror="this.style.display='none';"
-            >
 
-            <div class="project-image-clickzone"></div>
+          <div>
+
+            <div class="theme-name">
+              Packaging
+            </div>
+
+
+            <div class="theme-content">
+              Donner une présence forte à un produit grâce
+              au design de son emballage et à son univers graphique.
+            </div>
 
           </div>
 
-          <div class="project-info">
 
-            <div class="project-info-left">
-              <h3 class="project-name">
-                Mur Interactif
-              </h3>
-              <p class="project-description">
-                Direction artistique complète pour une installation immersive.
-              </p>
-            </div>
+          <div class="theme-plus" aria-hidden="true">
+            +
+          </div>
 
-            <div class="project-type">
+        </div>
+
+
+        <!-- DIRECTION ARTISTIQUE -->
+
+        <div
+          class="theme"
+          tabindex="0"
+          role="button"
+          aria-expanded="false"
+        >
+
+          <div class="theme-number">
+            03
+          </div>
+
+
+          <div>
+
+            <div class="theme-name">
               Direction artistique
             </div>
 
-          </div>
 
-        </article>
-
-
-        <!-- C.VÉLO -->
-
-        <article class="project-card">
-
-          <div class="project-image">
-
-            <img
-              class="slide active"
-              src="images/cvelo-1.jpg"
-              alt="Projet C.vélo — vue 1"
-              draggable="false"
-              onerror="this.parentElement.style.background='#013920'; this.style.display='none';"
-            >
-            <img
-              class="slide"
-              src="images/cvelo-2.jpg"
-              alt="Projet C.vélo — vue 2"
-              draggable="false"
-              onerror="this.style.display='none';"
-            >
-            <img
-              class="slide"
-              src="images/cvelo-3.jpg"
-              alt="Projet C.vélo — vue 3"
-              draggable="false"
-              onerror="this.style.display='none';"
-            >
-
-            <div class="project-image-clickzone"></div>
-
-          </div>
-
-          <div class="project-info">
-
-            <div class="project-info-left">
-              <h3 class="project-name">
-                C.vélo
-              </h3>
-              <p class="project-description">
-                Supports de communication pour une marque de mobilité urbaine.
-              </p>
-            </div>
-
-            <div class="project-type">
-              Communication
+            <div class="theme-content">
+              Construire une atmosphère visuelle cohérente
+              pour donner une vraie personnalité à un projet.
             </div>
 
           </div>
 
-        </article>
+
+          <div class="theme-plus" aria-hidden="true">
+            +
+          </div>
+
+        </div>
 
 
-      </div>
+        <!-- SUPPORTS GRAPHIQUES -->
 
-
-      <div class="gallery-controls">
-
-        <button
-          class="gallery-button"
-          id="prevProject"
-          aria-label="Projet précédent"
+        <div
+          class="theme"
+          tabindex="0"
+          role="button"
+          aria-expanded="false"
         >
-          ←
-        </button>
 
-        <button
-          class="gallery-button"
-          id="nextProject"
-          aria-label="Projet suivant"
-        >
-          →
-        </button>
+          <div class="theme-number">
+            04
+          </div>
 
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       VOS RETOURS
-  ========================= -->
-
-  <section class="testimonials" id="retours">
-
-    <div class="testimonials-header">
-
-      <h2 class="section-title">
-        Vos<br>
-        retours.
-      </h2>
-
-      <p class="testimonials-intro">
-        Quelques mots de celles et ceux
-        avec qui j'ai eu la chance de travailler.
-      </p>
-
-    </div>
-
-
-    <div class="testimonials-wrapper">
-
-      <div class="testimonials-track" id="testimonialsTrack">
-
-
-        <!-- TÉMOIGNAGE 01 -->
-
-        <article class="testimonial-card">
 
           <div>
-            <span class="testimonial-placeholder-tag">Témoignage à venir</span>
-            <div class="testimonial-quote">
-              « Témoignage client à venir. »
-            </div>
-          </div>
 
-          <div class="testimonial-author">
-
-            <div class="testimonial-name">
-              Prénom Nom
+            <div class="theme-name">
+              Supports graphiques
             </div>
 
-            <div class="testimonial-project">
-              Projet
+
+            <div class="theme-content">
+              Affiches, flyers, cartes de visite, présentations,
+              supports imprimés et déclinaisons de votre identité.
             </div>
 
           </div>
 
-        </article>
 
-
-        <!-- TÉMOIGNAGE 02 -->
-
-        <article class="testimonial-card">
-
-          <div>
-            <span class="testimonial-placeholder-tag">Témoignage à venir</span>
-            <div class="testimonial-quote">
-              « Témoignage client à venir. »
-            </div>
+          <div class="theme-plus" aria-hidden="true">
+            +
           </div>
 
-          <div class="testimonial-author">
-
-            <div class="testimonial-name">
-              Prénom Nom
-            </div>
-
-            <div class="testimonial-project">
-              Projet
-            </div>
-
-          </div>
-
-        </article>
-
-
-        <!-- TÉMOIGNAGE 03 -->
-
-        <article class="testimonial-card">
-
-          <div>
-            <span class="testimonial-placeholder-tag">Témoignage à venir</span>
-            <div class="testimonial-quote">
-              « Témoignage client à venir. »
-            </div>
-          </div>
-
-          <div class="testimonial-author">
-
-            <div class="testimonial-name">
-              Prénom Nom
-            </div>
-
-            <div class="testimonial-project">
-              Projet
-            </div>
-
-          </div>
-
-        </article>
+        </div>
 
 
       </div>
 
-
-      <div class="testimonials-controls">
-
-        <button
-          class="gallery-button"
-          id="prevTestimonial"
-          aria-label="Témoignage précédent"
-        >
-          ←
-        </button>
-
-        <button
-          class="gallery-button"
-          id="nextTestimonial"
-          aria-label="Témoignage suivant"
-        >
-          →
-        </button>
-
-      </div>
-
-    </div>
-
-  </section>
+    </section>
 
 
-  <!-- =========================
-       UNIVERS
-  ========================= -->
+    <!-- =========================
+         OFFRES
+    ========================= -->
 
-  <section class="universe" id="univers">
+    <section
+      class="offers"
+      id="offres"
+      aria-labelledby="offres-title"
+    >
 
-    <div class="universe-intro">
+      <div class="offers-header">
 
-      <h2 class="universe-title">
-        Mon<br>
-        univers.
-      </h2>
+        <h2 class="section-title" id="offres-title">
+          Mes<br>
+          offres.
+        </h2>
 
-      <div class="universe-text">
 
-        <p>
-          Le branding est au cœur d'Élan Studio.
-          J'aime construire des univers cohérents,
-          reconnaissables et pensés dans les moindres détails.
+        <p class="offers-intro">
+          Trois façons de donner forme à votre projet,
+          selon votre besoin, votre rythme et votre ambition.
         </p>
 
       </div>
 
-    </div>
+
+      <div class="offers-grid">
 
 
-    <div class="theme-list">
+        <!-- EXPRESS BRAND -->
+
+        <article class="offer-card">
+
+          <div>
+
+            <div class="offer-label">
+              Offre 01
+            </div>
 
 
-      <!-- BRANDING (mis en avant) -->
+            <h3 class="offer-title">
+              Express<br>
+              Brand
+            </h3>
 
-      <div class="theme featured">
 
-        <div class="theme-number">
-          01
-        </div>
+            <div class="offer-duration">
+              48 h
+            </div>
 
-        <div>
 
-          <div class="theme-name">
-            Branding
+            <p class="offer-description">
+              Créer rapidement une petite identité graphique.
+            </p>
+
+
+            <ul class="offer-list">
+
+              <li>Logo principal</li>
+              <li>Palette de couleurs</li>
+              <li>Typographies</li>
+              <li>Mini charte graphique</li>
+
+            </ul>
+
           </div>
 
-          <div class="theme-content">
-            Création ou refonte d'une identité de marque :
-            logo, palette, typographies, direction artistique
-            et système graphique.
+
+          <div>
+
+            <div class="offer-bottom">
+              Pour lancer votre projet rapidement
+            </div>
+
+            <a href="#contact" class="offer-cta">
+              En discuter →
+            </a>
+
           </div>
 
-        </div>
+        </article>
 
-        <div class="theme-plus">
-          +
-        </div>
+
+        <!-- BRANDING COMPLET -->
+
+        <article class="offer-card">
+
+          <div>
+
+            <div class="offer-label">
+              Offre 02
+            </div>
+
+
+            <h3 class="offer-title">
+              Branding<br>
+              complet
+            </h3>
+
+
+            <div class="offer-duration">
+              Environ 1 mois
+            </div>
+
+
+            <p class="offer-description">
+              Une identité complète et cohérente, du logo aux déclinaisons.
+            </p>
+
+
+            <ul class="offer-list">
+
+              <li>Logo principal + secondaire</li>
+              <li>Palette de couleurs</li>
+              <li>Typographies</li>
+              <li>Charte graphique complète</li>
+              <li>Déclinaisons de l'identité</li>
+              <li>Supports pour les réseaux</li>
+              <li>Supports de communication</li>
+
+            </ul>
+
+          </div>
+
+
+          <div>
+
+            <div class="offer-bottom">
+              Une identité pensée dans son ensemble
+            </div>
+
+            <a href="#contact" class="offer-cta">
+              En discuter →
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- À-CÔTÉS -->
+
+        <article class="offer-card">
+
+          <div>
+
+            <div class="offer-label">
+              Offre 03
+            </div>
+
+
+            <h3 class="offer-title">
+              Les<br>
+              à-côtés
+            </h3>
+
+
+            <div class="offer-duration">
+              À la carte
+            </div>
+
+
+            <p class="offer-description">
+              Pour les besoins ponctuels, sans engagement global.
+            </p>
+
+
+            <ul class="offer-list">
+
+              <li>Signature de mail</li>
+              <li>Carte de visite</li>
+              <li>Flyer</li>
+              <li>Affiche</li>
+              <li>Présentation</li>
+              <li>Support imprimé</li>
+
+            </ul>
+
+          </div>
+
+
+          <div>
+
+            <div class="offer-bottom">
+              Un besoin précis ? On le crée ensemble.
+            </div>
+
+            <a href="#contact" class="offer-cta">
+              En discuter →
+            </a>
+
+          </div>
+
+        </article>
+
 
       </div>
 
-
-      <!-- PACKAGING (mis en avant) -->
-
-      <div class="theme featured">
-
-        <div class="theme-number">
-          02
-        </div>
-
-        <div>
-
-          <div class="theme-name">
-            Packaging
-          </div>
-
-          <div class="theme-content">
-            Donner une présence forte à un produit grâce
-            au design de son emballage et à son univers graphique.
-          </div>
-
-        </div>
-
-        <div class="theme-plus">
-          +
-        </div>
-
-      </div>
+    </section>
 
 
-      <!-- DIRECTION ARTISTIQUE -->
+    <!-- =========================
+         CONTACT
+    ========================= -->
 
-      <div class="theme">
-
-        <div class="theme-number">
-          03
-        </div>
-
-        <div>
-
-          <div class="theme-name">
-            Direction artistique
-          </div>
-
-          <div class="theme-content">
-            Construire une atmosphère visuelle cohérente
-            pour donner une vraie personnalité à un projet.
-          </div>
-
-        </div>
-
-        <div class="theme-plus">
-          +
-        </div>
-
-      </div>
+    <section
+      class="contact"
+      id="contact"
+      aria-labelledby="contact-title"
+    >
 
 
-      <!-- SUPPORTS -->
+      <div class="contact-top">
 
-      <div class="theme">
-
-        <div class="theme-number">
-          04
-        </div>
-
-        <div>
-
-          <div class="theme-name">
-            Supports graphiques
-          </div>
-
-          <div class="theme-content">
-            Affiches, flyers, cartes de visite, présentations,
-            supports imprimés et déclinaisons de votre identité.
-          </div>
-
-        </div>
-
-        <div class="theme-plus">
-          +
-        </div>
-
-      </div>
+        <h2 class="contact-title" id="contact-title">
+          On prend<br>
+          contact ?
+        </h2>
 
 
-    </div>
+        <div class="contact-text">
 
-  </section>
-
-
-  <!-- =========================
-       OFFRES
-  ========================= -->
-
-  <section class="offers" id="offres">
-
-    <div class="offers-header">
-
-      <h2 class="section-title">
-        Mes<br>
-        offres.
-      </h2>
-
-      <p class="offers-intro">
-        Trois façons de donner forme à votre projet,
-        selon votre besoin, votre rythme et votre ambition.
-      </p>
-
-    </div>
-
-
-    <div class="offers-grid">
-
-
-      <!-- EXPRESS BRAND -->
-
-      <article class="offer-card">
-
-        <div>
-
-          <div class="offer-label">
-            Offre 01
-          </div>
-
-          <h3 class="offer-title">
-            Express<br>
-            Brand
-          </h3>
-
-          <div class="offer-duration">
-            48 h
-          </div>
-
-          <p class="offer-description">
-            Créer rapidement une petite identité graphique.
+          <p>
+            On commence simplement :
+            une première visio de prise de contact
+            d'environ 30 à 45 minutes, offerte.
           </p>
 
-          <ul class="offer-list">
 
-            <li>Logo principal</li>
-            <li>Palette de couleurs</li>
-            <li>Typographies</li>
-            <li>Mini charte graphique</li>
-
-          </ul>
-
-        </div>
-
-        <div>
-          <div class="offer-bottom">
-            Pour lancer votre projet rapidement
-          </div>
-          <a href="#contact" class="offer-cta">En discuter →</a>
-        </div>
-
-      </article>
-
-
-      <!-- BRANDING COMPLET -->
-
-      <article class="offer-card">
-
-        <div>
-
-          <div class="offer-label">
-            Offre 02
-          </div>
-
-          <h3 class="offer-title">
-            Branding<br>
-            complet
-          </h3>
-
-          <div class="offer-duration">
-            Environ 1 mois
-          </div>
-
-          <p class="offer-description">
-            Une identité complète et cohérente, du logo aux déclinaisons.
+          <p style="margin-top: 25px;">
+            L'occasion de parler de votre projet,
+            de vos envies et de voir ensemble
+            comment Élan Studio peut l'accompagner.
           </p>
 
-          <ul class="offer-list">
 
-            <li>Logo principal + secondaire</li>
-            <li>Palette de couleurs</li>
-            <li>Typographies</li>
-            <li>Charte graphique complète</li>
-            <li>Déclinaisons de l'identité</li>
-            <li>Supports pour les réseaux</li>
-            <li>Supports de communication</li>
-
-          </ul>
+          <a
+            href="mailto:bonjour@elanstudio.fr"
+            class="contact-mail"
+          >
+            bonjour@elanstudio.fr
+          </a>
 
         </div>
 
-        <div>
-          <div class="offer-bottom">
-            Une identité pensée dans son ensemble
-          </div>
-          <a href="#contact" class="offer-cta">En discuter →</a>
-        </div>
-
-      </article>
+      </div>
 
 
-      <!-- À-CÔTÉS -->
+      <!-- =========================
+           FORMULAIRE
+      ========================= -->
 
-      <article class="offer-card">
+      <div class="contact-form-wrapper">
 
-        <div>
-
-          <div class="offer-label">
-            Offre 03
-          </div>
-
-          <h3 class="offer-title">
-            Les<br>
-            à-côtés
-          </h3>
-
-          <div class="offer-duration">
-            À la carte
-          </div>
-
-          <p class="offer-description">
-            Pour les besoins ponctuels, sans engagement global.
-          </p>
-
-          <ul class="offer-list">
-
-            <li>Signature de mail</li>
-            <li>Carte de visite</li>
-            <li>Flyer</li>
-            <li>Affiche</li>
-            <li>Présentation</li>
-            <li>Support imprimé</li>
-
-          </ul>
-
-        </div>
-
-        <div>
-          <div class="offer-bottom">
-            Un besoin précis ? On le crée ensemble.
-          </div>
-          <a href="#contact" class="offer-cta">En discuter →</a>
-        </div>
-
-      </article>
+        <h3 class="form-title">
+          Votre projet ?
+        </h3>
 
 
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       CONTACT
-  ========================= -->
-
-  <section class="contact" id="contact">
-
-
-    <div class="contact-top">
-
-      <h2 class="contact-title">
-        On prend<br>
-        contact ?
-      </h2>
-
-
-      <div class="contact-text">
-
-        <p>
-          On commence simplement :
-          une première visio de prise de contact
-          d'environ 30 à 45 minutes, offerte.
-        </p>
-
-        <p style="margin-top: 25px;">
-          L'occasion de parler de votre projet,
-          de vos envies et de voir ensemble
-          comment Élan Studio peut l'accompagner.
-        </p>
-
-
-        <a
-          href="mailto:bonjour@elanstudio.fr"
-          class="contact-mail"
+        <form
+          action="https://formspree.io/f/xgaveyob"
+          method="POST"
         >
-          bonjour@elanstudio.fr
-        </a>
 
-      </div>
-
-    </div>
-
-
-    <!-- FORMULAIRE -->
-
-    <div class="contact-form-wrapper">
-
-      <h3 class="form-title">
-        Votre projet ?
-      </h3>
+          <input
+            type="hidden"
+            name="_subject"
+            value="Nouvelle demande de projet — Élan Studio"
+          >
 
 
-      <form
-        action="https://formspree.io/f/xgaveyob"
-        method="POST"
-      >
+          <div class="form-row">
+
+            <div class="field">
+
+              <label for="name">
+                Votre nom
+              </label>
+
+              <input
+                type="text"
+                id="name"
+                name="name"
+                autocomplete="name"
+                required
+              >
+
+            </div>
 
 
-        <div class="form-row">
+            <div class="field">
+
+              <label for="email">
+                Votre email
+              </label>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                required
+              >
+
+            </div>
+
+          </div>
+
 
           <div class="field">
 
-            <label for="name">
-              Votre nom
+            <label for="project">
+              Votre projet en quelques lignes
             </label>
 
-            <input
-              type="text"
-              id="name"
-              name="name"
+            <textarea
+              id="project"
+              name="project"
+              placeholder="Parlez-moi de votre projet..."
               required
-            >
+            ></textarea>
 
           </div>
 
 
-          <div class="field">
+          <div class="form-row">
 
-            <label for="email">
-              Votre email
-            </label>
+            <div class="field">
 
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-            >
+              <label for="deadline">
+                Vos délais
+              </label>
 
-          </div>
+              <input
+                type="text"
+                id="deadline"
+                name="deadline"
+                placeholder="Ex. lancement en novembre"
+              >
 
-        </div>
-
-
-        <div class="field">
-
-          <label for="project">
-            Votre projet en quelques lignes
-          </label>
-
-          <textarea
-            id="project"
-            name="project"
-            placeholder="Parlez-moi de votre projet..."
-            required
-          ></textarea>
-
-        </div>
+            </div>
 
 
-        <div class="form-row">
+            <div class="field">
 
-          <div class="field">
+              <label for="needs">
+                De quoi avez-vous besoin ?
+              </label>
 
-            <label for="deadline">
-              Vos délais
-            </label>
+              <input
+                type="text"
+                id="needs"
+                name="needs"
+                placeholder="Ex. branding, packaging..."
+              >
 
-            <input
-              type="text"
-              id="deadline"
-              name="deadline"
-              placeholder="Ex. lancement en novembre"
-            >
+            </div>
 
           </div>
 
 
-          <div class="field">
-
-            <label for="needs">
-              De quoi avez-vous besoin ?
-            </label>
-
-            <input
-              type="text"
-              id="needs"
-              name="needs"
-              placeholder="Ex. branding, packaging..."
-            >
-
-          </div>
-
-        </div>
+          <button
+            type="submit"
+            class="submit-button"
+          >
+            Envoyer ma demande →
+          </button>
 
 
-        <button
-          type="submit"
-          class="submit-button"
-        >
-          Envoyer ma demande →
-        </button>
+        </form>
+
+      </div>
 
 
-      </form>
-
-    </div>
+    </section>
 
 
-  </section>
+  </main>
 
 
   <!-- =========================
@@ -2060,13 +2558,18 @@
       © 2026 Élan Studio
     </div>
 
+
     <div>
-      <a href="mailto:bonjour@elanstudio.fr">bonjour@elanstudio.fr</a>
+      <a href="mailto:bonjour@elanstudio.fr">
+        bonjour@elanstudio.fr
+      </a>
     </div>
+
 
     <div>
       Instagram · LinkedIn
     </div>
+
 
     <div>
       Mentions légales
@@ -2083,7 +2586,7 @@
 
 
     /* =========================
-       GALERIE — flèches
+       GALERIE PROJETS — FLÈCHES
     ========================= */
 
     const track = document.getElementById("projectsTrack");
@@ -2116,47 +2619,69 @@
 
 
     /* =========================
-       GALERIE — drag à la souris (desktop)
+       GALERIE PROJETS — DRAG DESKTOP
     ========================= */
 
     let isDown = false;
     let startX;
     let scrollStart;
 
+
     track.addEventListener("mousedown", (e) => {
+
       isDown = true;
+
       track.classList.add("dragging");
+
       startX = e.pageX - track.offsetLeft;
+
       scrollStart = track.scrollLeft;
+
     });
+
 
     track.addEventListener("mouseleave", () => {
+
       isDown = false;
+
       track.classList.remove("dragging");
+
     });
+
 
     track.addEventListener("mouseup", () => {
+
       isDown = false;
+
       track.classList.remove("dragging");
+
     });
+
 
     track.addEventListener("mousemove", (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - track.offsetLeft;
-      const walk = (x - startX) * 1.2;
-      track.scrollLeft = scrollStart - walk;
-    });
 
-    /* Le swipe tactile natif (mobile) fonctionne déjà
-       grâce à overflow-x: auto sur .projects-track */
+      if (!isDown) return;
+
+      e.preventDefault();
+
+      const x =
+        e.pageX - track.offsetLeft;
+
+      const walk =
+        (x - startX) * 1.2;
+
+      track.scrollLeft =
+        scrollStart - walk;
+
+    });
 
 
     /* =========================
-       TÉMOIGNAGES — flèches + drag souris
+       TÉMOIGNAGES — FLÈCHES
     ========================= */
 
-    const testimonialsTrack = document.getElementById("testimonialsTrack");
+    const testimonialsTrack =
+      document.getElementById("testimonialsTrack");
 
     const nextTestimonial =
       document.getElementById("nextTestimonial");
@@ -2185,92 +2710,212 @@
     });
 
 
+    /* =========================
+       TÉMOIGNAGES — DRAG DESKTOP
+    ========================= */
+
     let isDownT = false;
     let startXT;
     let scrollStartT;
 
+
     testimonialsTrack.addEventListener("mousedown", (e) => {
+
       isDownT = true;
+
       testimonialsTrack.classList.add("dragging");
-      startXT = e.pageX - testimonialsTrack.offsetLeft;
-      scrollStartT = testimonialsTrack.scrollLeft;
+
+      startXT =
+        e.pageX -
+        testimonialsTrack.offsetLeft;
+
+      scrollStartT =
+        testimonialsTrack.scrollLeft;
+
     });
+
 
     testimonialsTrack.addEventListener("mouseleave", () => {
+
       isDownT = false;
+
       testimonialsTrack.classList.remove("dragging");
+
     });
+
 
     testimonialsTrack.addEventListener("mouseup", () => {
+
       isDownT = false;
+
       testimonialsTrack.classList.remove("dragging");
+
     });
 
+
     testimonialsTrack.addEventListener("mousemove", (e) => {
+
       if (!isDownT) return;
+
       e.preventDefault();
-      const x = e.pageX - testimonialsTrack.offsetLeft;
-      const walk = (x - startXT) * 1.2;
-      testimonialsTrack.scrollLeft = scrollStartT - walk;
+
+      const x =
+        e.pageX -
+        testimonialsTrack.offsetLeft;
+
+      const walk =
+        (x - startXT) * 1.2;
+
+      testimonialsTrack.scrollLeft =
+        scrollStartT - walk;
+
     });
 
 
     /* =========================
-       MINI-CARROUSELS PAR PROJET
+       MINI-CARROUSELS DES PROJETS
     ========================= */
 
-    document.querySelectorAll(".project-image").forEach((imageBox) => {
+    document
+      .querySelectorAll(".project-image")
+      .forEach((imageBox) => {
 
-      const slides = imageBox.querySelectorAll(".slide");
+        const slides =
+          imageBox.querySelectorAll(".slide");
 
-      if (slides.length <= 1) return;
 
-      // Génère les dots automatiquement selon le nombre d'images
-      const dotsWrapper = document.createElement("div");
-      dotsWrapper.className = "project-dots";
+        if (slides.length <= 1) return;
 
-      slides.forEach((slide, index) => {
 
-        const dot = document.createElement("button");
-        dot.className = "project-dot" + (index === 0 ? " active" : "");
-        dot.setAttribute("aria-label", "Voir la photo " + (index + 1));
+        const dotsWrapper =
+          document.createElement("div");
 
-        dot.addEventListener("click", (e) => {
-          e.stopPropagation();
-          goToSlide(imageBox, index);
+        dotsWrapper.className =
+          "project-dots";
+
+
+        slides.forEach((slide, index) => {
+
+          const dot =
+            document.createElement("button");
+
+
+          dot.className =
+            "project-dot" +
+            (index === 0 ? " active" : "");
+
+
+          dot.type = "button";
+
+
+          dot.setAttribute(
+            "aria-label",
+            "Voir la photo " +
+            (index + 1)
+          );
+
+
+          dot.addEventListener("click", (e) => {
+
+            e.stopPropagation();
+
+            goToSlide(
+              imageBox,
+              index
+            );
+
+          });
+
+
+          dotsWrapper.appendChild(dot);
+
         });
 
-        dotsWrapper.appendChild(dot);
+
+        imageBox.appendChild(dotsWrapper);
+
+
+        const clickzone =
+          imageBox.querySelector(
+            ".project-image-clickzone"
+          );
+
+
+        function nextSlide() {
+
+          const currentIndex =
+            Array.from(slides)
+              .findIndex((slide) =>
+                slide.classList.contains("active")
+              );
+
+
+          const nextIndex =
+            (currentIndex + 1) %
+            slides.length;
+
+
+          goToSlide(
+            imageBox,
+            nextIndex
+          );
+
+        }
+
+
+        clickzone.addEventListener(
+          "click",
+          nextSlide
+        );
+
+
+        clickzone.addEventListener(
+          "keydown",
+          (e) => {
+
+            if (
+              e.key === "Enter" ||
+              e.key === " "
+            ) {
+
+              e.preventDefault();
+
+              nextSlide();
+
+            }
+
+          }
+        );
 
       });
 
-      imageBox.appendChild(dotsWrapper);
-
-      // Clic sur l'image = passer à la photo suivante
-      const clickzone = imageBox.querySelector(".project-image-clickzone");
-
-      clickzone.addEventListener("click", () => {
-
-        const currentIndex = Array.from(slides).findIndex(s => s.classList.contains("active"));
-        const nextIndex = (currentIndex + 1) % slides.length;
-
-        goToSlide(imageBox, nextIndex);
-
-      });
-
-    });
 
     function goToSlide(imageBox, index) {
 
-      const slides = imageBox.querySelectorAll(".slide");
-      const dots = imageBox.querySelectorAll(".project-dot");
+      const slides =
+        imageBox.querySelectorAll(".slide");
+
+      const dots =
+        imageBox.querySelectorAll(".project-dot");
+
 
       slides.forEach((slide, i) => {
-        slide.classList.toggle("active", i === index);
+
+        slide.classList.toggle(
+          "active",
+          i === index
+        );
+
       });
 
+
       dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === index);
+
+        dot.classList.toggle(
+          "active",
+          i === index
+        );
+
       });
 
     }
@@ -2284,21 +2929,64 @@
       document.querySelectorAll(".theme");
 
 
-    themes.forEach(theme => {
+    themes.forEach((theme) => {
 
-      theme.addEventListener("click", () => {
 
-        const alreadyActive = theme.classList.contains("active");
+      function toggleTheme() {
 
-        themes.forEach(otherTheme => {
+        const alreadyActive =
+          theme.classList.contains("active");
+
+
+        themes.forEach((otherTheme) => {
+
           otherTheme.classList.remove("active");
+
+          otherTheme.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
         });
 
+
         if (!alreadyActive) {
+
           theme.classList.add("active");
+
+          theme.setAttribute(
+            "aria-expanded",
+            "true"
+          );
+
         }
 
-      });
+      }
+
+
+      theme.addEventListener(
+        "click",
+        toggleTheme
+      );
+
+
+      theme.addEventListener(
+        "keydown",
+        (e) => {
+
+          if (
+            e.key === "Enter" ||
+            e.key === " "
+          ) {
+
+            e.preventDefault();
+
+            toggleTheme();
+
+          }
+
+        }
+      );
 
     });
 
