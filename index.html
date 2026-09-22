@@ -475,6 +475,27 @@
     }
 
 
+    /* Thème des points selon le fond de la 1ère photo du projet */
+
+    .project-image[data-dot-theme="green"] .project-dot {
+      background: rgba(1, 57, 32, 0.4);
+    }
+
+    .project-image[data-dot-theme="green"] .project-dot.active {
+      background: var(--green);
+      transform: scale(1.25);
+    }
+
+    .project-image[data-dot-theme="beige"] .project-dot {
+      background: rgba(255, 247, 227, 0.45);
+    }
+
+    .project-image[data-dot-theme="beige"] .project-dot.active {
+      background: var(--cream);
+      transform: scale(1.25);
+    }
+
+
     .project-image-clickzone {
       position: absolute;
       inset: 0;
@@ -1520,12 +1541,78 @@
 
 
           <!-- =========================
+               MUR INTERACTIF
+          ========================= -->
+
+          <article class="project-card">
+
+            <div class="project-image" data-dot-theme="beige">
+
+              <img
+                class="slide active"
+                src="images/mur-interactif-1.jpg"
+                alt="Mur Interactif — direction artistique pour une installation immersive"
+                draggable="false"
+                onerror="this.parentElement.style.background='#013920'; this.style.display='none';"
+              >
+
+              <img
+                class="slide"
+                src="images/mur-interactif-2.jpg"
+                alt="Mur Interactif — univers visuel et création graphique"
+                draggable="false"
+                onerror="this.style.display='none';"
+              >
+
+              <img
+                class="slide"
+                src="images/mur-interactif-3.jpg"
+                alt="Mur Interactif — supports graphiques pour une expérience immersive"
+                draggable="false"
+                onerror="this.style.display='none';"
+              >
+
+              <div
+                class="project-image-clickzone"
+                role="button"
+                tabindex="0"
+                aria-label="Voir les différentes images du projet Mur Interactif"
+              ></div>
+
+            </div>
+
+
+            <div class="project-info">
+
+              <div class="project-info-left">
+
+                <h3 class="project-name">
+                  Mur Interactif
+                </h3>
+
+                <p class="project-description">
+                  Direction artistique complète pour une installation immersive.
+                </p>
+
+              </div>
+
+
+              <div class="project-type">
+                Direction artistique
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- =========================
                AERIALIX
           ========================= -->
 
           <article class="project-card">
 
-            <div class="project-image">
+            <div class="project-image" data-dot-theme="green">
 
               <img
                 class="slide active"
@@ -1591,7 +1678,7 @@
 
           <article class="project-card">
 
-            <div class="project-image">
+            <div class="project-image" data-dot-theme="green">
 
               <img
                 class="slide active"
@@ -1644,138 +1731,6 @@
 
               <div class="project-type">
                 Branding · Packaging
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <!-- =========================
-               MUR INTERACTIF
-          ========================= -->
-
-          <article class="project-card">
-
-            <div class="project-image">
-
-              <img
-                class="slide active"
-                src="images/mur-interactif-1.jpg"
-                alt="Mur Interactif — direction artistique pour une installation immersive"
-                draggable="false"
-                onerror="this.parentElement.style.background='#013920'; this.style.display='none';"
-              >
-
-              <img
-                class="slide"
-                src="images/mur-interactif-2.jpg"
-                alt="Mur Interactif — univers visuel et création graphique"
-                draggable="false"
-                onerror="this.style.display='none';"
-              >
-
-              <img
-                class="slide"
-                src="images/mur-interactif-3.jpg"
-                alt="Mur Interactif — supports graphiques pour une expérience immersive"
-                draggable="false"
-                onerror="this.style.display='none';"
-              >
-
-              <div
-                class="project-image-clickzone"
-                role="button"
-                tabindex="0"
-                aria-label="Voir les différentes images du projet Mur Interactif"
-              ></div>
-
-            </div>
-
-
-            <div class="project-info">
-
-              <div class="project-info-left">
-
-                <h3 class="project-name">
-                  Mur Interactif
-                </h3>
-
-                <p class="project-description">
-                  Direction artistique complète pour une installation immersive.
-                </p>
-
-              </div>
-
-
-              <div class="project-type">
-                Direction artistique
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <!-- =========================
-               C.VÉLO
-          ========================= -->
-
-          <article class="project-card">
-
-            <div class="project-image">
-
-              <img
-                class="slide active"
-                src="images/cvelo-1.jpg"
-                alt="C.vélo — création graphique et communication pour la mobilité urbaine"
-                draggable="false"
-                onerror="this.parentElement.style.background='#013920'; this.style.display='none';"
-              >
-
-              <img
-                class="slide"
-                src="images/cvelo-2.jpg"
-                alt="C.vélo — déclinaison de supports de communication"
-                draggable="false"
-                onerror="this.style.display='none';"
-              >
-
-              <img
-                class="slide"
-                src="images/cvelo-3.jpg"
-                alt="C.vélo — création de contenus graphiques"
-                draggable="false"
-                onerror="this.style.display='none';"
-              >
-
-              <div
-                class="project-image-clickzone"
-                role="button"
-                tabindex="0"
-                aria-label="Voir les différentes images du projet C.vélo"
-              ></div>
-
-            </div>
-
-
-            <div class="project-info">
-
-              <div class="project-info-left">
-
-                <h3 class="project-name">
-                  C.vélo
-                </h3>
-
-                <p class="project-description">
-                  Supports graphiques et contenus de communication pour une marque de mobilité urbaine.
-                </p>
-
-              </div>
-
-
-              <div class="project-type">
-                Communication
               </div>
 
             </div>
